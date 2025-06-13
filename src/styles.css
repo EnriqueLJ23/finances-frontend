@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(183.39 44.74% 5.42%);
+  --color-foreground: hsl(64 36% 97%);
+  --color-muted: hsl(184 36% 14%);
+  --color-muted-foreground: hsl(184 18.28% 67.99%);
+  --color-popover: hsl(180 44.44% 3.53%);
+  --color-popover-foreground: hsl(64 36% 97%);
+  --color-card: hsl(178.87 42.04% 3.57%);
+  --color-card-foreground: hsl(64 36% 97%);
+  --color-border: hsl(171.43 19.39% 16.36%);
+  --color-input: hsl(171.43 21.94% 12.99%);
+  --color-primary: hsl(175.34 77.44% 26.08%);
+  --color-primary-foreground: hsl(166.15 76.47% 96.67%);
+  --color-secondary: hsl(173.41 80.39% 40%);
+  --color-secondary-foreground: hsl(166.15 0% 100%);
+  --color-accent: hsl(168.39 24.59% 43.22%);
+  --color-accent-foreground: hsl(175.34 30.13% 86.79%);
+  --color-destructive: hsl(345.35 82.69% 40.78%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-ring: hsl(168.39 83.78% 78.24%);
+}
+@layer components {
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-sm p-6;
+  }
+
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6 pb-0;
+  }
+
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+  }
+
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+}
