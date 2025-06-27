@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
-export class Dashboard {
+export class Dashboard implements OnInit{
+
+  dashboardService = inject(DashboardService);
+  data = this.dashboardService.loadedData;
+
+  ngOnInit() {
+    this.dashboardService.loadData().subscribe({
+      next: (data) => console.log(data)   
+    }
+    )
+  }
 
 }

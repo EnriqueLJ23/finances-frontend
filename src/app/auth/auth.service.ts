@@ -25,6 +25,8 @@ export class AuthService {
               username: resData.username,
               token: resData.token,
             };
+            console.log(user);
+            
             this.user.set(user);
           },
         }),
