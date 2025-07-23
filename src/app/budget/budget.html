@@ -1,0 +1,154 @@
+<div class="h-full p-6">
+  <div class="max-w-7xl mx-auto space-y-6 h-full">
+    <div class="mb-13">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-foreground mb-2">Budget limit</h1>
+          <p class="text-muted-foreground">Set your budget for the month</p>
+        </div>
+        <button
+          class="text-white p-1 border border-muted px-6 py-3 rounded-xl font-medium hover:bg-muted cursor-pointer"
+        >
+          + Add Budget
+        </button>
+      </div>
+    </div>
+    <div class="card flex items-center gap-4 p-4">
+      <svg
+        class="w-5 h-5 text-gray-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+      <span class="font-medium text-foreground">July 2024</span>
+      <div class="flex gap-2">
+        <button
+          class="text-purple-400 hover:bg-purple-50 px-3 py-1 rounded-lg text-sm font-medium transition-colors"
+        >
+          Previous
+        </button>
+        <button
+          class="text-purple-400 hover:bg-purple-50 px-3 py-1 rounded-lg text-sm font-medium transition-colors"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Summary cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Current Balance -->
+      <div class="card">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-primary">$12,485.50</p>
+            <p class="hero-label">Total Budget</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-success">$5,240.00</p>
+            <p class="hero-label">Spent Amount</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-success">$5,240.00</p>
+            <p class="hero-label">Remaining Balance</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-destructive">100%</p>
+            <p class=" ">Budget Used</p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <span
+            class="text-xs px-2 py-1 bg-warning/20 text-warning rounded-full"
+            >$1,120.75 remaining</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Budget Categories -->
+    <div class="card p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        @for (budget of budgets(); track budget.id) {
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded-lg bg-blue-100">
+                <svg
+                  class="w-5 h-5 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-foreground">
+                  {{budget.category}}
+                </h4>
+                <p class="text-sm text-muted-foreground">
+                  ${{budget.amount}} of $900
+                </p>
+              </div>
+            </div>
+            <button class="text-gray-300 hover:text-muted-foreground p-1">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-medium text-gray-400">83.3%</span>
+              <span class="text-gray-400">$150 left</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div
+                class="h-2 rounded-full transition-all duration-300 bg-blue-600"
+                style="width: 83.3%"
+              ></div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,428 @@
-<p>{{data()}}</p>
+<div class="h-full p-6">
+  <div class="max-w-7xl mx-auto space-y-6 h-full">
+    <!-- Header -->
+    <div class="mb-13">
+      <h1 class="text-3xl font-bold text-foreground mb-2">Personal Finances</h1>
+      <p class="text-muted-foreground">
+        Quick overview of your financial status
+      </p>
+    </div>
+
+    <!-- Hero Cards - 4 in a row on medium+ screens, grid on small -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Current Balance -->
+      <div class="card relative">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-primary">$12,485.50</p>
+            <p class="hero-label">Current Balance</p>
+          </div>
+          <div class="hero-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="mt-2">
+          <span
+            class="text-xs px-2 py-1 bg-success/20 text-success rounded-full"
+            >+2.4%</span
+          >
+        </div>
+      </div>
+
+      <!-- Income This Month -->
+      <div class="card relative">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-success">$5,240.00</p>
+            <p class="hero-label">Income (This Month)</p>
+          </div>
+          <div class="hero-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="mt-2">
+          <span
+            class="text-xs px-2 py-1 bg-success/20 text-success rounded-full"
+            >+12.5%</span
+          >
+        </div>
+      </div>
+
+      <!-- Expenses This Month -->
+      <div class="card relative">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-destructive">$3,120.75</p>
+            <p class="hero-label">Expenses (This Month)</p>
+          </div>
+          <div class="hero-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="mt-2">
+          <span
+            class="text-xs px-2 py-1 bg-warning/20 text-warning rounded-full"
+            >+5.2%</span
+          >
+        </div>
+      </div>
+
+      <!-- Budget Utilization -->
+      <div class="card relative">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="hero-value text-warning">67%</p>
+            <p class="hero-label">Budget Utilization</p>
+          </div>
+          <div class="hero-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="mt-2">
+          <div class="progress-bar">
+            <div class="progress-fill bg-warning" style="width: 67%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insights Row - Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Expense by Category Chart -->
+      <div class="card">
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-foreground mb-2">
+            Expense by Category
+          </h3>
+          <p class="text-sm text-muted-foreground">
+            Breakdown of spending by category
+          </p>
+        </div>
+        <div
+          class="h-64 flex items-center justify-center bg-muted/30 rounded border-2 border-dashed border-muted"
+        >
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-3 opacity-40">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="6" x2="12" y2="12" />
+                <line x1="16.24" y1="16.24" x2="12" y2="12" />
+              </svg>
+            </div>
+            <p class="text-muted-foreground font-medium">Doughnut Chart</p>
+            <p class="text-xs text-muted-foreground mt-1">
+              % of total expenses
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cashflow Chart -->
+      <div class="card">
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-foreground mb-2">
+            Cashflow Trend
+          </h3>
+          <p class="text-sm text-muted-foreground">
+            Income vs expenses over last 6 months
+          </p>
+        </div>
+        <div
+          class="h-64 flex items-center justify-center bg-muted/30 rounded border-2 border-dashed border-muted"
+        >
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-3 opacity-40">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+            </div>
+            <p class="text-muted-foreground font-medium">Line/Area Chart</p>
+            <p class="text-xs text-muted-foreground mt-1">
+              6-month cashflow pattern
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Activity Feed, Goals, and Upcoming Bills -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Activity Feed -->
+      <div class="card">
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-foreground mb-2">
+            Recent Activity
+          </h3>
+          <p class="text-sm text-muted-foreground">Last 5 transactions</p>
+        </div>
+        <div class="space-y-3">
+          <div
+            class="flex items-center space-x-3 p-2 hover:bg-muted/30 rounded transition-colors"
+          >
+            <div
+              class="w-10 h-10 bg-destructive/20 rounded-full flex items-center justify-center"
+            >
+              <span class="text-destructive font-semibold text-sm">S</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium">Starbucks Coffee</p>
+              <p class="text-xs text-muted-foreground">Today, 2:30 PM</p>
+            </div>
+            <span class="text-destructive font-semibold">-$5.45</span>
+          </div>
+
+          <div
+            class="flex items-center space-x-3 p-2 hover:bg-muted/30 rounded transition-colors"
+          >
+            <div
+              class="w-10 h-10 bg-success/20 rounded-full flex items-center justify-center"
+            >
+              <span class="text-success font-semibold text-sm">P</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium">Payroll Deposit</p>
+              <p class="text-xs text-muted-foreground">Yesterday, 12:00 AM</p>
+            </div>
+            <span class="text-success font-semibold">+$2,500.00</span>
+          </div>
+
+          <div
+            class="flex items-center space-x-3 p-2 hover:bg-muted/30 rounded transition-colors"
+          >
+            <div
+              class="w-10 h-10 bg-warning/20 rounded-full flex items-center justify-center"
+            >
+              <span class="text-warning font-semibold text-sm">U</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium">Uber Ride</p>
+              <p class="text-xs text-muted-foreground">Jan 15, 8:45 PM</p>
+            </div>
+            <span class="text-destructive font-semibold">-$18.20</span>
+          </div>
+
+          <div
+            class="flex items-center space-x-3 p-2 hover:bg-muted/30 rounded transition-colors"
+          >
+            <div
+              class="w-10 h-10 bg-info/20 rounded-full flex items-center justify-center"
+            >
+              <span class="text-info font-semibold text-sm">A</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium">Amazon Purchase</p>
+              <p class="text-xs text-muted-foreground">Jan 14, 3:22 PM</p>
+            </div>
+            <span class="text-destructive font-semibold">-$67.89</span>
+          </div>
+
+          <div
+            class="flex items-center space-x-3 p-2 hover:bg-muted/30 rounded transition-colors"
+          >
+            <div
+              class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center"
+            >
+              <span class="text-secondary font-semibold text-sm">G</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium">Grocery Store</p>
+              <p class="text-xs text-muted-foreground">Jan 13, 6:15 PM</p>
+            </div>
+            <span class="text-destructive font-semibold">-$124.56</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-border">
+          <button
+            class="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+          >
+            View all transactions →
+          </button>
+        </div>
+      </div>
+
+      <!-- Goal Progress -->
+      <div class="card">
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-foreground mb-2">
+            Savings Goals
+          </h3>
+          <p class="text-sm text-muted-foreground">Track your progress</p>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-medium">Emergency Fund</span>
+              <span class="text-xs text-muted-foreground"
+                >$8,500 / $10,000</span
+              >
+            </div>
+            <div class="progress-bar">
+              <div
+                class="progress-fill bg-gradient-to-r from-success to-primary"
+                style="width: 85%"
+              ></div>
+            </div>
+            <div class="flex justify-between items-center mt-1">
+              <span class="text-xs text-success font-medium">85% complete</span>
+              <span class="text-xs text-muted-foreground">3 months left</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-medium">Vacation Fund</span>
+              <span class="text-xs text-muted-foreground">$2,200 / $5,000</span>
+            </div>
+            <div class="progress-bar">
+              <div
+                class="progress-fill bg-gradient-to-r from-warning to-secondary"
+                style="width: 44%"
+              ></div>
+            </div>
+            <div class="flex justify-between items-center mt-1">
+              <span class="text-xs text-warning font-medium">44% complete</span>
+              <span class="text-xs text-muted-foreground">8 months left</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-medium">New Car</span>
+              <span class="text-xs text-muted-foreground"
+                >$5,800 / $25,000</span
+              >
+            </div>
+            <div class="progress-bar">
+              <div
+                class="progress-fill bg-gradient-to-r from-info to-accent"
+                style="width: 23%"
+              ></div>
+            </div>
+            <div class="flex justify-between items-center mt-1">
+              <span class="text-xs text-info font-medium">23% complete</span>
+              <span class="text-xs text-muted-foreground">24 months left</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-border">
+          <button
+            class="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+          >
+            Manage goals →
+          </button>
+        </div>
+      </div>
+
+      <!-- Upcoming Bills -->
+      <div class="card">
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-foreground mb-2">
+            Upcoming Bills
+          </h3>
+          <p class="text-sm text-muted-foreground">Don't miss a payment</p>
+        </div>
+        <div class="space-y-3">
+          <div
+            class="flex items-center justify-between p-3 bg-destructive/10 border border-destructive/20 rounded-lg"
+          >
+            <div>
+              <p class="text-sm font-medium">Rent Payment</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span
+                  class="text-xs px-2 py-1 bg-destructive text-destructive-foreground rounded-full"
+                  >Due in 2 days</span
+                >
+              </div>
+            </div>
+            <span class="text-foreground font-semibold">$1,200.00</span>
+          </div>
+
+          <div
+            class="flex items-center justify-between p-3 bg-warning/10 border border-warning/20 rounded-lg"
+          >
+            <div>
+              <p class="text-sm font-medium">Electric Bill</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span
+                  class="text-xs px-2 py-1 bg-warning text-black rounded-full"
+                  >Due in 5 days</span
+                >
+              </div>
+            </div>
+            <span class="text-foreground font-semibold">$89.45</span>
+          </div>
+
+          <div
+            class="flex items-center justify-between p-3 bg-muted/30 border border-border rounded-lg"
+          >
+            <div>
+              <p class="text-sm font-medium">Internet Bill</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span
+                  class="text-xs px-2 py-1 bg-muted text-muted-foreground rounded-full"
+                  >Due in 12 days</span
+                >
+              </div>
+            </div>
+            <span class="text-foreground font-semibold">$65.99</span>
+          </div>
+
+          <div
+            class="flex items-center justify-between p-3 bg-muted/30 border border-border rounded-lg"
+          >
+            <div>
+              <p class="text-sm font-medium">Phone Bill</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span
+                  class="text-xs px-2 py-1 bg-muted text-muted-foreground rounded-full"
+                  >Due in 18 days</span
+                >
+              </div>
+            </div>
+            <span class="text-foreground font-semibold">$45.00</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-border">
+          <button
+            class="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+          >
+            View all bills →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

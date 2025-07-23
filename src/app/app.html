@@ -1,6 +1,12 @@
 <!-- src/app/app.component.html -->
-<div class="min-h-screen bg-background flex items-center justify-center">
-  <div class="">
+<div class="min-h-screen bg-background flex">
+  <!-- Sidebar Navigation -->
+  @if (authService.user()) {
+  <app-navbar />
+  }
+
+  <!-- Main Content Area -->
+  <main class="flex-1 ml-22 m-4">
     <router-outlet />
-  </div>
+  </main>
 </div>
