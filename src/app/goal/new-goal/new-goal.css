@@ -1,0 +1,8 @@
+.control:has(.ng-invalid.ng-touched.ng-dirty) label {
+  color: #f98b75;
+}
+
+input.ng-invalid.ng-touched.ng-dirty {
+  background-color: hsl(171.43 21.94% 12.99%);
+  border-color: #f84e2c;
+}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { catchError, map, tap, throwError } from 'rxjs';
-import { Goal } from './goal.model';
+import { Goal, New_Goal } from './goal.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +26,20 @@ export class GoalsService {
         );
       })
     );
+  }
+
+  newGoal(goal: New_Goal) {
+    return this.httpClient.post('http://localhost:8080/api/goals', goal);
+  }
+
+  editGoal(goalId: number, updates: Partial<Goal>) {
+    return this.httpClient.patch(
+      `http://localhost:8080/api/goals/${goalId}`,
+      updates
+    );
+  }
+
+  deleteGoal(goalId: number) {
+    return this.httpClient.delete(`http://localhost:8080/api/goals/${goalId}`);
   }
 }

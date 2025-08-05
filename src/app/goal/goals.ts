@@ -1,16 +1,19 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { GoalsService } from './goal.service';
+import { NewGoal } from './new-goal/new-goal';
+import { Goal } from './goal/goal';
 
 @Component({
-  selector: 'app-goal',
-  imports: [],
-  templateUrl: './goal.html',
-  styleUrl: './goal.css',
+  selector: 'app-goals',
+  imports: [NewGoal, Goal],
+  templateUrl: './goals.html',
+  styleUrl: './goals.css',
 })
-export class Goal implements OnInit {
+export class Goals implements OnInit {
   goalService = inject(GoalsService);
   goals = this.goalService.loadedData;
   destroyRef = inject(DestroyRef);
+  isOpen = signal(false);
 
   ngOnInit(): void {
     const subscription = this.goalService.loadData().subscribe({
@@ -24,5 +27,13 @@ export class Goal implements OnInit {
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
     });
+  }
+
+  openForm() {
+    this.isOpen.set(true);
+  }
+
+  closeForm() {
+    this.isOpen.set(false);
   }
 }

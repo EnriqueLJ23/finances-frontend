@@ -16,14 +16,12 @@ export class AuthService {
 
   login(user: { username: string; password: string }) {
     return this.httpClient
-      .post<{ username: string; token: string }>(
-        'http://localhost:8080/auth/login',
-        user
-      )
+      .post<User>('http://localhost:8080/auth/login', user)
       .pipe(
         tap({
           next: (resData) => {
             const user = {
+              id: resData.id,
               username: resData.username,
               token: resData.token,
             };

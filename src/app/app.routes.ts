@@ -4,7 +4,7 @@ import { Dashboard } from './dashboard/dashboard';
 import { inject } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 import { NotFound } from './not-found/not-found';
-import { Goal } from './goal/goal';
+import { Goals } from './goal/goals';
 import { Budget } from './budget/budget';
 
 const authGuard: CanMatchFn = (route, segments) => {
@@ -35,7 +35,7 @@ export const routes: Routes = [
   },
   {
     path: 'goals',
-    component: Goal,
+    component: Goals,
     canMatch: [authGuard],
   },
   {
