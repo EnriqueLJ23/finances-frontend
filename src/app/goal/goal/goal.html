@@ -20,7 +20,10 @@
 
   <!-- Progress bar -->
   <div class="w-full bg-gray-100 rounded-full h-3 mb-2">
-    <div class="bg-blue-500 h-3 rounded-full" style="width: 25%"></div>
+    <div
+      class="bg-blue-500 h-3 rounded-full"
+      [style.width.%]="goal().current_amount / goal().target_amount * 100"
+    ></div>
   </div>
 
   <div class="flex gap-8 mt-2">

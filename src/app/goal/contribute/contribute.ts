@@ -31,8 +31,8 @@ export class Contribute {
     const subscription = this.goalsService
       .editGoal(this.goalId(), new_current_amount)
       .subscribe({
-        next: (response) => {
-          console.log(response);
+        complete: () => {
+          this.closeForm();
         },
       });
 

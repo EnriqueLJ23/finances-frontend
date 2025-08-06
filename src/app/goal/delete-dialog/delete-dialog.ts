@@ -18,7 +18,7 @@ export class DeleteDialog {
 
   onSubmit() {
     const subscription = this.goalsService.deleteGoal(this.goalId()).subscribe({
-      next: (resData) => console.log(resData),
+      complete: () => this.closeForm(),
     });
 
     this.destroyRef.onDestroy(() => {

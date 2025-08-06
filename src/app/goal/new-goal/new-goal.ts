@@ -35,7 +35,6 @@ export class NewGoal {
     };
 
     const subscription = this.goalsService.newGoal(new_goal).subscribe({
-      next: (resData) => console.log(resData),
       complete: () => {
         form.form.reset();
         this.closeForm();
