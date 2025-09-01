@@ -8,7 +8,6 @@ export type Goal = {
 };
 
 export type New_Goal = {
-  user_id: number;
   title: string;
   target_amount: number;
   current_amount: number;

@@ -1,0 +1,98 @@
+<div
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+>
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold text-gray-900">Edit Budget</h2>
+      <button
+        (click)="onCancel()"
+        class="text-gray-400 hover:text-gray-600 transition-colors"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    @if (error()) {
+    <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+      {{ error() }}
+    </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label
+          for="category"
+          class="block text-sm font-medium text-gray-700 mb-2"
+        >
+          Category
+        </label>
+        <input
+          id="category"
+          type="text"
+          formControlName="category"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Enter category (e.g., Food, Transportation)"
+          [class.border-red-500]="form.get('category')?.invalid && form.get('category')?.touched"
+        />
+        @if (form.get('category')?.invalid && form.get('category')?.touched) {
+        <p class="mt-1 text-sm text-red-500">Category is required</p>
+        }
+      </div>
+
+      <div class="mb-6">
+        <label
+          for="amount"
+          class="block text-sm font-medium text-gray-700 mb-2"
+        >
+          Budget Amount ($)
+        </label>
+        <input
+          id="amount"
+          type="number"
+          step="0.01"
+          min="0.01"
+          formControlName="amount"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="0.00"
+          [class.border-red-500]="form.get('amount')?.invalid && form.get('amount')?.touched"
+        />
+        @if (form.get('amount')?.invalid && form.get('amount')?.touched) {
+        <p class="mt-1 text-sm text-red-500">
+          @if (form.get('amount')?.errors?.['required']) { Amount is required }
+          @else if (form.get('amount')?.errors?.['min']) { Amount must be
+          greater than 0 }
+        </p>
+        }
+      </div>
+
+      <div class="flex gap-3">
+        <button
+          type="button"
+          (click)="onCancel()"
+          class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 font-medium transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="form.invalid || isSubmitting()"
+          class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-colors"
+        >
+          @if (isSubmitting()) { Updating... } @else { Update Budget }
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

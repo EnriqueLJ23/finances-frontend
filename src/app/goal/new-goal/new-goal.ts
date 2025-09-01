@@ -27,7 +27,6 @@ export class NewGoal {
     }
 
     const new_goal: New_Goal = {
-      user_id: this.user()!.id,
       title: form.form.value.title,
       current_amount: form.form.value.current,
       target_amount: form.form.value.amount,

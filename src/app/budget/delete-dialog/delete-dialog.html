@@ -1,0 +1,51 @@
+<div
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+>
+  <div class="card max-w-md w-full mx-4">
+    <div class="card-header">
+      <div class="flex items-center justify-between">
+        <h2 class="card-title text-destructive">Delete Budget</h2>
+        <button
+          (click)="closeForm()"
+          class="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <p class="card-description">Are you sure you want to delete the <strong>{{ budgetName() }}</strong> budget?</p>
+    </div>
+
+    <div class="card-content mt-8">
+      <div class="flex gap-3 w-full">
+        <button
+          (click)="closeForm()"
+          type="button"
+          class="cursor-pointer flex-1 px-4 py-2 border border-border text-muted-foreground rounded-md hover:bg-muted hover:text-foreground transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          (click)="onSubmit()"
+          class="cursor-pointer flex-1 px-4 py-2 bg-destructive text-primary-foreground rounded-md hover:bg-destructive/90 transition-colors font-medium"
+        >
+          Delete Budget
+        </button>
+      </div>
+    </div>
+
+    <div class="card-footer"></div>
+  </div>
+</div>

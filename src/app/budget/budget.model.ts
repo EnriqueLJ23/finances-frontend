@@ -1,8 +1,9 @@
 export type Budget = {
-  id: string;
-  user_id: string;
+  id: number;
+  user_id: number;
   category: string;
   amount: number;
+  used: number;
   month: number;
   year: number;
 };

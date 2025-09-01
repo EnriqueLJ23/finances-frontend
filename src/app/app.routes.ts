@@ -6,6 +6,7 @@ import { AuthService } from './auth/auth.service';
 import { NotFound } from './not-found/not-found';
 import { Goals } from './goal/goals';
 import { Budget } from './budget/budget';
+import { Transactions } from './transaction/transactions/transactions';
 
 const authGuard: CanMatchFn = (route, segments) => {
   const authService = inject(AuthService);
@@ -15,7 +16,7 @@ const authGuard: CanMatchFn = (route, segments) => {
   if (user) {
     return true;
   }
-  return new RedirectCommand(router.parseUrl('/unauthorized'));
+  return new RedirectCommand(router.parseUrl('/auth'));
 };
 
 export const routes: Routes = [
@@ -41,6 +42,11 @@ export const routes: Routes = [
   {
     path: 'budgets',
     component: Budget,
+    canMatch: [authGuard],
+  },
+  {
+    path: 'transactions',
+    component: Transactions,
     canMatch: [authGuard],
   },
   {

@@ -1,68 +1,60 @@
 <nav
-  class="border-r border-border fixed left-0 top-0 w-18 shadow-xl z-50 flex flex-col items-center py-6 space-y-6 h-screen"
+  class="border-r border-gray-200 fixed left-0 top-0 w-18 bg-white shadow-lg z-50 flex flex-col items-center py-6 space-y-6 h-screen"
 >
   <!-- Dashboard Icon -->
   <a
     routerLink="/dashboard"
-    class="group relative w-12 h-12 bg-muted/80 rounded-xl flex items-center justify-center cursor-pointer hover:bg-primary/10 hover:scale-105 transition-all duration-200 hover:shadow-lg"
+    routerLinkActive="selected"
+    class="group relative w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center cursor-pointer hover:bg-blue-50 hover:scale-105 transition-all duration-200 hover:shadow-md border border-transparent hover:border-blue-100"
     title="Dashboard"
   >
-    <svg
-      class="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-      />
-    </svg>
+    <img
+      src="/dashboard-svgrepo-com.svg"
+      alt="Dashboard"
+      class="w-7 h-7 opacity-70 group-hover:opacity-100 transition-all duration-200"
+    />
   </a>
 
   <!-- Budget Icon -->
   <a
     routerLink="/budgets"
-    class="group relative w-12 h-12 bg-muted/80 rounded-xl flex items-center justify-center cursor-pointer hover:bg-primary/10 hover:scale-105 transition-all duration-200 hover:shadow-lg"
+    routerLinkActive="selected"
+    class="group relative w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center cursor-pointer hover:bg-blue-50 hover:scale-105 transition-all duration-200 hover:shadow-md border border-transparent hover:border-blue-100"
     title="Budget"
   >
-    <svg
-      class="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2-2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"
-      />
-    </svg>
+    <img
+      src="/budget-svgrepo-com.svg"
+      alt="Budget"
+      class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-all duration-200"
+    />
   </a>
 
   <!-- Goals Icon -->
   <a
     routerLink="/goals"
-    class="group relative w-12 h-12 bg-muted/80 rounded-xl flex items-center justify-center cursor-pointer hover:bg-primary/10 hover:scale-105 transition-all duration-200 hover:shadow-lg"
+    routerLinkActive="selected"
+    class="group relative w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center cursor-pointer hover:bg-blue-50 hover:scale-105 transition-all duration-200 hover:shadow-md border border-transparent hover:border-blue-100"
     title="Goals"
   >
-    <svg
-      class="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M5 3l14 9-14 9V3z"
-      />
-      <circle cx="19" cy="12" r="2" stroke-width="2" fill="none" />
-    </svg>
+    <img
+      src="/goal-svgrepo-com.svg"
+      alt="Goals"
+      class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-all duration-200"
+    />
+  </a>
+
+  <!-- Transactions Icon -->
+  <a
+    routerLink="/transactions"
+    routerLinkActive="selected"
+    class="group relative w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center cursor-pointer hover:bg-blue-50 hover:scale-105 transition-all duration-200 hover:shadow-md border border-transparent hover:border-blue-100"
+    title="Transactions"
+  >
+    <img
+      src="/transactions-svgrepo-com.svg"
+      alt="Transactions"
+      class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-all duration-200"
+    />
   </a>
 
   <!-- Spacer to push logout to bottom -->
@@ -71,11 +63,11 @@
   <!-- Logout Icon -->
   <button
     (click)="logout()"
-    class="group relative w-12 h-12 bg-muted/80 rounded-xl flex items-center justify-center cursor-pointer hover:bg-destructive/90 hover:scale-105 transition-all duration-200 hover:shadow-lg"
+    class="group relative w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center cursor-pointer hover:bg-red-50 hover:scale-105 transition-all duration-200 hover:shadow-md border border-transparent hover:border-red-100"
     title="Logout"
   >
     <svg
-      class="w-6 h-6 text-muted-foreground group-hover:text-destructive-foreground transition-colors"
+      class="w-6 h-6 text-gray-500 group-hover:text-red-500 transition-colors duration-200"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

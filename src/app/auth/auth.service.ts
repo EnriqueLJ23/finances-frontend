@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private httpClient = inject(HttpClient);
+  private tokenExpirationTimer: any;
   user = signal<User | null>(null);
   loadedUser = this.user.asReadonly();
   router = inject(Router);
@@ -24,10 +25,12 @@ export class AuthService {
               id: resData.id,
               username: resData.username,
               token: resData.token,
+              expiresAt: resData.expiresAt,
             };
 
             localStorage.setItem('userData', JSON.stringify(user));
             this.user.set(user);
+            this.autoLogout(user.expiresAt);
           },
         }),
         catchError((error) => {
@@ -56,12 +59,35 @@ export class AuthService {
       return;
     }
     const userInfo = JSON.parse(userData);
+    const expirationTime = userInfo.expiresAt;
+
+    if (expirationTime <= new Date().getTime()) {
+      this.logout();
+      return;
+    }
+
     this.user.set(userInfo);
+    this.autoLogout(expirationTime);
+  }
+
+  autoLogout(expiresAt: number) {
+    const currentTime = new Date().getTime();
+    const timeUntilExpiration = expiresAt - currentTime;
+
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, timeUntilExpiration);
   }
 
   logout() {
     this.user.set(null);
     localStorage.removeItem('userData');
     this.router.navigate(['/auth']);
+
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+
+    this.tokenExpirationTimer = null;
   }
 }
